@@ -3,6 +3,7 @@ const R = require('ramda')
 const RB = require('rambda')
 const RBX = require('rambdax')
 const Cmap = require('crocks/pointfree/map')
+const sanctuary3 = require('sanctuary3')
 const sanctuary = require('sanctuary')
 const benchmark = require('benchmark')
 
@@ -17,6 +18,18 @@ const SNT = sanctuary.create({
 })
 
 const SU = sanctuary.unchecked
+
+const S3 = sanctuary3.create({
+  checkTypes: true,
+  env: sanctuary3.env
+})
+
+const SNT3 = sanctuary3.create({
+  checkTypes: false,
+  env: sanctuary3.env
+})
+
+const SU3 = sanctuary3.unchecked
 
 function double(n) {
   return n * 2
@@ -53,6 +66,15 @@ suite
   })
   .add('sanctuary unchecked', () => {
     SU.map(double)
+  })
+  .add('sanctuary3', () => {
+    S3.map(double)
+  })
+  .add('sanctuary3 wo type checking', () => {
+    SNT3.map(double)
+  })
+  .add('sanctuary3 unchecked', () => {
+    SU3.map(double)
   })
   // add listeners
   .on('cycle', event => {

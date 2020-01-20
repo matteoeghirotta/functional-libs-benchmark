@@ -16,10 +16,11 @@
     "microtime": "^3.0.0",
     "platform": "^1.3.5",
     "prettier": "^1.19.1",
-    "rambda": "^4.0.2",
-    "rambdax": "^3.1.0",
+    "rambda": "^4.4.0",
+    "rambdax": "^3.5.0",
     "ramda": "^0.26.1",
-    "sanctuary": "^2.0.1",
+    "sanctuary": "^2.0.2",
+    "sanctuary3": "npm:sanctuary@^3.0.0",
     "testcheck": "^1.0.0-rc.2"
   }
 }
